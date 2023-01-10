@@ -43,3 +43,17 @@ border-radius: 0 0 10px 10px; /* arrondie lors du survol pour éviter débordeme
 #score{
     background-color: white;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    border: 1px solid white;
+  }
