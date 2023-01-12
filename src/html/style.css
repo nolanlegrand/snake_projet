@@ -10,38 +10,14 @@ body{
     font-weight: initial;
     
 }
-.cadre{
 
-border: 4px solid #ff0000; /* bordure */
-border-radius: 10px; /* bordure arrondie */
-width: 217px; /* largeur */
-height: 200px;
-background-color: black;
-}
-.cadre span{
-border-bottom: 1px solid #CACCCD; /* bordure du bas */
-font-size: 15px; /* taille du texte */
-margin: 0; /* marges ext */
-padding: 5px 0; /* marges int. */      
-text-align: center; /* alignement du texte */
-display : block; /* permet de prendre toute la place */
-}
-.cadre a{
-display: block; /* affichage block (pleine largeur)
-border-bottom: 1px solid #CACCCD; /* bordure du bas */
-color: #ffffff; /* couleur du texte */
-padding: 5px; /* marges int. */
-text-decoration: none; /* permet de retirer l'heritage de l'effet souligné des liens */
-}
 
-.cadre a:last-child{
-border: 0; /* pas de bordure pour le dernier lien */
-}
-.cadre a:hover:last-child{
-border-radius: 0 0 10px 10px; /* arrondie lors du survol pour éviter débordement lors de l'application du hover */
-}
 #score{
     background-color: white;
+    border-top-left-radius: 50%;
+    border: black 10px double;
+    background-clip: content-box;
+    background-color: rgb(25, 156, 25);
 }
 html, body {
     height: 100%;
@@ -49,11 +25,100 @@ html, body {
   }
 
   body {
-    background: black;
+    background-image: linear-gradient(#485563, #29323c);
     display: flex;
     align-items: center;
     justify-content: center;
   }
   canvas {
-    border: 1px solid white;
+    border: 6px solid rgb(0, 0, 0);
   }
+  #game{
+    background-color: rgb(255, 255, 255);
+  }
+  #score2{
+    background-color: white;
+    border-top-right-radius: 50%;
+    border: black 10px double;
+    background-clip: content-box;
+    background-color: indigo;
+    
+    
+  }
+  nav {
+    margin: 27px auto 0;
+  
+    position: relative;
+    width: 210px;
+    height: 50px;
+    background-color: #34495e;
+    border-radius: 8px;
+    font-size: 0;
+  }
+  nav a {
+    line-height: 50px;
+    height: 100%;
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+  }
+  nav .animation {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 0;
+    transition: all .5s ease 0s;
+    border-radius: 8px;
+  }
+  a:nth-child(1) {
+    width: 100px;
+  }
+  a:nth-child(2) {
+    width: 110px;
+  }
+ 
+  nav .start-home, a:nth-child(1):hover~.animation {
+    width: 100px;
+    left: 0;
+    background-color: #1abc9c;
+  }
+  nav .start-about, a:nth-child(2):hover~.animation {
+    width: 110px;
+    left: 100px;
+    background-color: #e74c3c;
+  }
+  
+  body {
+    font-size: 12px;
+    font-family: sans-serif;
+    background: #2c3e50;
+  }
+
+  h1{
+    margin: 40px 0 40px;
+    font-size: 30px;
+    color: #ffa600;
+    text-shadow: 2px 2px 4px #000000;
+    font-family: 'Cherry Swash', cursive;
+  }
+  
+  p {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #ecf0f1;
+      font-family: 'Cherry Swash',cursive;
+      font-size: 16px;
+  }
+  
+  span {
+      color: #2BD6B4;
+  }
+  

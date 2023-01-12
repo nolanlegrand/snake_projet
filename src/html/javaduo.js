@@ -4,10 +4,16 @@ var context = canvas.getContext('2d');
 var grid = 16;
 var count = 0;
 var score = 0;
+var score2 = 0;
+function getRandomOfMultiples(multiple) {
+  var randomnumber=Math.floor(Math.random()*11)*multiple;
+console.log(randomnumber);
+  return randomnumber;
+}
   
 var snake = {
-  x: getRandomInt(0, 400),
-  y: getRandomInt(0, 400),
+  x: getRandomOfMultiples(16),
+  y: getRandomOfMultiples(16),
   
   // vitesse du serpent. déplace une longueur de grille à chaque image dans la direction x ou 
   dx: grid,
@@ -20,8 +26,8 @@ var snake = {
   maxCells: 4
 };
 var snake2 = {
-    x: getRandomInt(0, 400),
-    y: getRandomInt(0, 400),
+    x: getRandomOfMultiples(16),
+    y: getRandomOfMultiples(16),
     
     // vitesse du serpent. déplace une longueur de grille à chaque image dans la direction x ou 
     dx: grid,
@@ -114,7 +120,7 @@ function loop() {
       
     
     // dessiner 1 px plus petit que la grille crée un effet de grille dans le corps du serpent afin que vous puissiez voir sa longueur
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+    context.fillRect(cell.x, cell.y, grid-0, grid-0);  
 
     // le serpent a mangé une pomme
     if (cell.x === apple.x && cell.y === apple.y) {
@@ -134,22 +140,18 @@ function loop() {
       
       // le serpent occupe le même espace qu'une partie du corps. réinitialiser le jeu
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = getRandomInt(0, 400),
-        snake.y = getRandomInt(0, 400),
+        snake.x = getRandomOfMultiples(16),
+        snake.y = getRandomOfMultiples(16),
         snake.cells = [];
         snake.maxCells = 4;
         snake.dx = grid;
         snake.dy = 0;
-        snake2.x = getRandomInt(0, 400),
-        snake2.y = getRandomInt(0, 400),
-        snake2.cells = [];
-        snake2.maxCells = 4;
-        snake2.dx = grid;
-        snake2.dy = 0;
         var audio = new Audio('explosions.mp3');
+        audio.play();
         score=0;
+        
         document.getElementById("mytext").innerHTML = score;
-        document.getElementById("mort").innerHTML = "vous avez perdu"; 
+        document.getElementById("mort").innerHTML = "vous avez:"; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
@@ -164,14 +166,14 @@ function loop() {
       
     
     // dessiner 1 px plus petit que la grille crée un effet de grille dans le corps du serpent afin que vous puissiez voir sa longueur
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+    context.fillRect(cell.x, cell.y, grid-0, grid-0);  
 
     // le serpent a mangé une pomme
 
     if (cell.x === apple.x && cell.y === apple.y) {
         snake2.maxCells++;
-        score++;
-        document.getElementById("mytext2").innerHTML = score;
+        score2++;
+        document.getElementById("mytext2").innerHTML = score2;
   
         // canvas is 400x400 which is 25x25 grids
         apple.x = getRandomInt(0, 25) * grid;
@@ -184,28 +186,42 @@ function loop() {
       
       // le serpent occupe le même espace qu'une partie du corps. réinitialiser le jeu
       if (cell.x === snake2.cells[i].x && cell.y === snake2.cells[i].y) {
-        snake2.x = getRandomInt(0, 400),
-        snake2.y = getRandomInt(0, 400),
+        snake2.x = getRandomOfMultiples(16),
+        snake2.y = getRandomOfMultiples(16),
         snake2.cells = [];
         snake2.maxCells = 4;
         snake2.dx = grid;
         snake2.dy = 0;
-        snake.x = getRandomInt(0, 400),
-        snake.y = getRandomInt(0, 400),
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
         var audio = new Audio('explosions.mp3');
         audio.play();
-        score=0;
-        document.getElementById("mytext").innerHTML = score;
-        document.getElementById("mort").innerHTML = "vous avez perdu"; 
+        score2=0;
+
+        document.getElementById("mytext2").innerHTML = score2;
+        document.getElementById("mort2").innerHTML = "vous avez:"; 
+
+        apple.x = getRandomInt(0, 25) * grid;
+        apple.y = getRandomInt(0, 25) * grid;
+      }
+
+      if (cell.x === snake2.cells[i].x && cell.y === snake2.cells[i].y) {
+        snake2.x = getRandomOfMultiples(16),
+        snake2.y = getRandomOfMultiples(16),
+        snake2.cells = [];
+        snake2.maxCells = 4;
+        snake2.dx = grid;
+        snake2.dy = 0;
+        var audio = new Audio('explosions.mp3');
+        audio.play();
+        score2=0;
+
+        document.getElementById("mytext2").innerHTML = score2;
+        document.getElementById("mort2").innerHTML = "vous avez:"; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
       }
     }
+ 
     
   });
 }
@@ -218,44 +234,44 @@ document.addEventListener('keydown', function(e) {
   // ne devrait pas vous laisser entrer en collision avec votre propre corps)
   
   // flèche gauche
-  if (e.which === 37 && snake.dx === 0) {
+  if (e.which === 65 && snake.dx === 0) {
     snake.dx = -grid;
     snake.dy = 0;
   }
   // flèche vers le haut
-  else if (e.which === 38 && snake.dy === 0) {
+  else if (e.which === 87 && snake.dy === 0) {
     snake.dy = -grid;
     snake.dx = 0;
   }
   // flèche droite
-  else if (e.which === 39 && snake.dx === 0) {
+  else if (e.which === 68 && snake.dx === 0) {
     snake.dx = grid;
     snake.dy = 0;
   }
   // flèche vers le bas
-  else if (e.which === 40 && snake.dy === 0) {
+  else if (e.which === 83 && snake.dy === 0) {
     snake.dy = grid;
     snake.dx = 0;
   }
 
 
   // a
-  if (e.which === 65 && snake2.dx === 0) {
+  if (e.which === 37 && snake2.dx === 0) {
     snake2.dx = -grid;
     snake2.dy = 0;
   }
   // w
-  else if (e.which === 87 && snake2.dy === 0) {
+  else if (e.which === 38 && snake2.dy === 0) {
     snake2.dy = -grid;
     snake2.dx = 0;
   }
   // d
-  else if (e.which === 68 && snake2.dx === 0) {
+  else if (e.which === 39 && snake2.dx === 0) {
     snake2.dx = grid;
     snake2.dy = 0;
   }
   // s
-  else if (e.which === 83 && snake2.dy === 0) {
+  else if (e.which === 40 && snake2.dy === 0) {
     snake2.dy = grid;
     snake2.dx = 0;
 }

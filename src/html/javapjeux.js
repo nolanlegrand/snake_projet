@@ -79,7 +79,7 @@ function loop() {
   snake.cells.forEach(function(cell, index) {
     
     // dessiner 1 px plus petit que la grille crée un effet de grille dans le corps du serpent afin que vous puissiez voir sa longueur
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+    context.fillRect(cell.x, cell.y, grid-0, grid-0);  
 
     // le serpent a mangé une pomme
     if (cell.x === apple.x && cell.y === apple.y) {
@@ -104,9 +104,10 @@ function loop() {
         snake.dx = grid;
         snake.dy = 0;
         var audio = new Audio('explosions.mp3');
+        audio.play();
         score=0;
         document.getElementById("mytext").innerHTML = score;
-        document.getElementById("mort").innerHTML = "vous avez perdu"; 
+        document.getElementById("mort").innerHTML = "vous avez mange:"; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
