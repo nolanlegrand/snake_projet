@@ -35,7 +35,7 @@ function loop() {
   requestAnimationFrame(loop);
 
   // boucle de jeu lente à 15 fps au lieu de 60 (60/15 = 4)
-  if (++count < 5) {
+  if (++count < 4) {
     return;
   }
 
@@ -85,7 +85,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
       score++;
-      document.getElementById("mytext").innerHTML = score;
+      document.getElementById("mort").innerHTML = "vous avez mange:"; 
 
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
@@ -147,3 +147,7 @@ document.addEventListener('keydown', function(e) {
 
 // demarrer le jeu
 requestAnimationFrame(loop);
+
+function playMusique() {
+  document.getElementById("musique").play();
+}

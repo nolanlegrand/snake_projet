@@ -126,7 +126,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
       score++;
-      document.getElementById("mytext").innerHTML = score;
+      document.getElementById("mort").innerHTML = "vous avez: " + score.toString() + " points !"; ; 
 
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
@@ -150,8 +150,8 @@ function loop() {
         audio.play();
         score=0;
         
-        document.getElementById("mytext").innerHTML = score;
-        document.getElementById("mort").innerHTML = "vous avez:"; 
+        
+        document.getElementById("mort2").innerHTML = "vous avez: " + score.toString() + " points !"; ; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
@@ -173,7 +173,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
         snake2.maxCells++;
         score2++;
-        document.getElementById("mytext2").innerHTML = score2;
+        document.getElementById("mort2").innerHTML = "vous avez: " + score2.toString() + " points !"; 
   
         // canvas is 400x400 which is 25x25 grids
         apple.x = getRandomInt(0, 25) * grid;
@@ -196,8 +196,7 @@ function loop() {
         audio.play();
         score2=0;
 
-        document.getElementById("mytext2").innerHTML = score2;
-        document.getElementById("mort2").innerHTML = "vous avez:"; 
+        document.getElementById("mort2").innerHTML = "vous avez: " + score2.toString() + " points !"; ; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
