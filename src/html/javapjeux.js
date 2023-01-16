@@ -75,7 +75,7 @@ function loop() {
   context.fillRect(apple.x, apple.y, grid-1, grid-1);
 
   // dessiner snake une cellule à la fois
-  context.fillStyle = 'green';
+  context.fillStyle = 'darkblue';
   snake.cells.forEach(function(cell, index) {
     
     // dessiner 1 px plus petit que la grille crée un effet de grille dans le corps du serpent afin que vous puissiez voir sa longueur
@@ -85,7 +85,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
       score++;
-      document.getElementById("mort").innerHTML = "vous avez mange:"; 
+      document.getElementById("mort").innerHTML = score.toString() + "points";
 
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
@@ -106,8 +106,8 @@ function loop() {
         var audio = new Audio('explosions.mp3');
         audio.play();
         score=0;
-        document.getElementById("mytext").innerHTML = score;
-        document.getElementById("mort").innerHTML = "vous avez mange:"; 
+        document.getElementById("mort2").innerHTML = score.toString() + " points "; ; 
+        
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;

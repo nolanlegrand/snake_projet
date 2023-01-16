@@ -115,7 +115,7 @@ function loop() {
   context.fillRect(apple.x, apple.y, grid-1, grid-1);
 
   // dessiner snake une cellule à la fois
-  context.fillStyle = 'green';
+  context.fillStyle = 'darkblue';
   snake.cells.forEach(function(cell, index) {
       
     
@@ -126,7 +126,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
       score++;
-      document.getElementById("mort").innerHTML = "vous avez: " + score.toString() + " points !"; ; 
+      document.getElementById("mort").innerHTML = score.toString() + " points "; 
 
       // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
@@ -151,7 +151,7 @@ function loop() {
         score=0;
         
         
-        document.getElementById("mort2").innerHTML = "vous avez: " + score.toString() + " points !"; ; 
+        document.getElementById("mort2").innerHTML = score.toString() + " points "; ; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
@@ -173,7 +173,7 @@ function loop() {
     if (cell.x === apple.x && cell.y === apple.y) {
         snake2.maxCells++;
         score2++;
-        document.getElementById("mort2").innerHTML = "vous avez: " + score2.toString() + " points !"; 
+        document.getElementById("mort2").innerHTML = score2.toString() + " points "; 
   
         // canvas is 400x400 which is 25x25 grids
         apple.x = getRandomInt(0, 25) * grid;
@@ -196,29 +196,13 @@ function loop() {
         audio.play();
         score2=0;
 
-        document.getElementById("mort2").innerHTML = "vous avez: " + score2.toString() + " points !"; ; 
+        document.getElementById("mort2").innerHTML = score2.toString() + " points "; ; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
       }
 
-      if (cell.x === snake2.cells[i].x && cell.y === snake2.cells[i].y) {
-        snake2.x = getRandomOfMultiples(16),
-        snake2.y = getRandomOfMultiples(16),
-        snake2.cells = [];
-        snake2.maxCells = 4;
-        snake2.dx = grid;
-        snake2.dy = 0;
-        var audio = new Audio('explosions.mp3');
-        audio.play();
-        score2=0;
-
-        document.getElementById("mytext2").innerHTML = score2;
-        document.getElementById("mort2").innerHTML = "vous avez:"; 
-
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
+      
     }
  
     
