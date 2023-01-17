@@ -151,7 +151,7 @@ function loop() {
         score=0;
         
         
-        document.getElementById("mort2").innerHTML = score.toString() + " points "; ; 
+        document.getElementById("mort").innerHTML = score.toString() + " points "; ; 
 
         apple.x = getRandomInt(0, 25) * grid;
         apple.y = getRandomInt(0, 25) * grid;
