@@ -208,13 +208,13 @@ function loop() {
   });
 }
 
-// listen to keyboard events to move the snake
+
 document.addEventListener('keydown', function(e) {
   // empêcher le serpent de revenir sur lui-même en vérifiant qu'il est
   // ne se déplaçant pas déjà sur le même axe (appuyer à gauche tout en se déplaçant
   // la gauche ne fera rien, et appuyer sur la droite tout en se déplaçant vers la gauche
   // ne devrait pas vous laisser entrer en collision avec votre propre corps)
-  
+  // mouvement serpent bleu
   // flèche gauche
   if (e.which === 65 && snake.dx === 0) {
     snake.dx = -grid;
@@ -236,7 +236,7 @@ document.addEventListener('keydown', function(e) {
     snake.dx = 0;
   }
 
-
+  // mouvement serpent violet
   // a
   if (e.which === 37 && snake2.dx === 0) {
     snake2.dx = -grid;
